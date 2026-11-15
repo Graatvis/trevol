@@ -21,7 +21,9 @@ De standaard CLI-login is het VICAR-account. Graatvis heeft een aparte login: ge
 De Vercel MCP-connector in Claude ziet alleen VICAR, niet graatvis.
 
 Al gedaan (15 nov 2026): project `graatvis/dolomieten-2027` gekoppeld, publieke Blob-store `dolomieten-2027` (fra1) gekoppeld (`BLOB_READ_WRITE_TOKEN`), `STATE_KEY` gezet (production + preview, sensitive).
-Nog: `env add ACCESS_CODE production|preview --sensitive`, daarna `--prod` deployen.
+`ACCESS_CODE` staat op production (preview: `env add ACCESS_CODE preview --sensitive --yes`, Git-branch leeg laten).
+Live: https://dolomieten-2027.vercel.app. Git: github.com/Graatvis/trevol (publiek), gekoppeld aan Vercel; elke push naar `main` deployt automatisch naar productie.
+Commits in deze repo met `milan@graatvis.be` (lokaal ingesteld in .git/config).
 
 Lokaal zonder Vercel: `npm run dev` (dev.mjs, code `dev`). `.vercelignore` houdt dev-bestanden, CLAUDE.md en README uit de deploy.
 
