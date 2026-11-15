@@ -30,6 +30,7 @@ Lokaal zonder Vercel: `npm run dev` (dev.mjs, code `dev`). `.vercelignore` houdt
 ## Kaart
 MapLibre GL 5 (via jsDelivr). Drie stijlen: Kaart (OpenFreeMap Liberty + hillshade), Satelliet (EOX Sentinel-2 cloudless 2021, CC BY-NC-SA 4.0, niet-commercieel) met OSM-labels, Topo (OpenTopoMap).
 3D-terrein: AWS Terrain Tiles (terrarium). Globe-projectie bij ver uitzoomen. Toggles: 3D, noorden, hele route, publieke laadpalen.
+Routes: echte autoroutes per dag (`DAY_LEGS` + gegenereerde `ROADS`, polylines). Na het wijzigen van PLACES, DAY_LEGS of de kabelbaan-dalstations in `scripts/build-routes.mjs`: `node scripts/build-routes.mjs` (OSRM-demoserver, eenmalig, niet live). Pins van de campings en Völser Weiher gecontroleerd tegen OSM (nov 2026).
 Foto's: eigen uploads + automatisch geotagde foto's uit Wikimedia Commons (met naamsvermelding in de lightbox). Campingfoto's van hun eigen websites niet kopiëren (auteursrecht); er staat een Website-knop.
 
 ## Nog te checken na eerste deploy
