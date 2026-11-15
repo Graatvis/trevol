@@ -2,6 +2,7 @@
 
 Persoonlijke planner voor Milans roadtrip (Oostkamp → Dolomieten, Tesla Model Y, 2 personen + hond Teddie).
 UI-taal: Nederlands. Huisregel: geen em dashes (—), gebruik gewone koppeltekens.
+Thema: licht en donker via `data-theme` op `<html>` (volgt het systeem, knop in de kopbalk onthoudt de keuze in localStorage `trevol-theme`). Kleuren altijd via tokens in `:root`; donkere waarden staan in het blok "Dark theme" onderaan de CSS. Lime-vlakken en alles op de kaart (pins, popups) krijgen lokaal lichte tokens. Kaartstijl Kaart wordt OpenFreeMap "dark" in donkere modus.
 
 ## Structuur
 - `index.html` - de volledige app (HTML, CSS en JS in één bestand). Bevat ook de laadpalen-dataset (`const CHARGERS`, GeoJSON uit OpenStreetMap, snapshot nov 2026).
