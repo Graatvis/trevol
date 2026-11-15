@@ -1,4 +1,4 @@
-# Dolomieten 2027 - reisplanner
+# Trevol - reisplanner (Dolomieten 2027)
 
 Persoonlijke planner voor Milans roadtrip (Oostkamp → Dolomieten, Tesla Model Y, 2 personen + hond Teddie).
 UI-taal: Nederlands. Huisregel: geen em dashes (—), gebruik gewone koppeltekens.

@@ -81,6 +81,8 @@ http.createServer(async (req, res) => {
       const f = path.join(PHOTOS, path.basename(url.pathname));
       return send(res, 200, await fs.readFile(f), "image/jpeg");
     }
+    const ASSETS = { "/favicon.svg": "image/svg+xml", "/apple-touch-icon.png": "image/png" };
+    if (ASSETS[url.pathname]) return send(res, 200, await fs.readFile(path.join(ROOT, url.pathname.slice(1))), ASSETS[url.pathname]);
     if (url.pathname === "/" || url.pathname === "/index.html") {
       return send(res, 200, await fs.readFile(path.join(ROOT, "index.html")), "text/html; charset=utf-8");
     }
@@ -89,4 +91,4 @@ http.createServer(async (req, res) => {
     console.error(e);
     send(res, 500, { error: "server" });
   }
-}).listen(PORT, () => console.log(`Dolomieten 2027 lokaal op http://localhost:${PORT}  (code: ${CODE})`));
+}).listen(PORT, () => console.log(`Trevol lokaal op http://localhost:${PORT}  (code: ${CODE})`));

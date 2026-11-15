@@ -3,7 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Dolomieten 2027</title>
+<title>Trevol</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#EDEDEA">
+<meta name="apple-mobile-web-app-title" content="Trevol">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -46,7 +50,8 @@ button{cursor:pointer}
 .topbar{position:sticky;top:0;z-index:40;padding:12px 0}
 .topbar .tbar{display:flex;align-items:center;gap:16px;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:18px;padding:8px 8px 8px 14px;box-shadow:var(--shadow)}
 .logo{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
-.logo .mk{width:32px;height:32px;border-radius:10px;background:var(--ink);color:var(--lime);display:grid;place-items:center;font-size:20px;line-height:1}
+.logo .mk{width:32px;height:32px;border-radius:10px;background:var(--ink);color:var(--lime);display:grid;place-items:center;flex:none}
+.logo .mk svg{width:20px;height:20px}
 .nav{display:flex;gap:2px;margin:0 auto}
 .nav a{text-decoration:none;font-size:14px;color:var(--muted);padding:8px 12px;border-radius:10px;white-space:nowrap}
 .nav a:hover{color:var(--ink)}
@@ -237,10 +242,22 @@ label.f > span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-
 .mapv.nomap{display:grid;place-items:center;text-align:center;padding:30px;color:var(--muted);background:var(--paper2)}
 .maplibregl-ctrl-attrib{font-family:var(--display);font-size:11px}
 .maplibregl-ctrl-attrib.maplibregl-compact-show{max-width:min(520px,70%)}
-.gate{position:fixed;inset:0;z-index:100;background:#EDEDEA;display:none;align-items:center;justify-content:center;padding:20px}
+.gate{position:fixed;inset:0;z-index:100;background:#EDEDEA;display:none;align-items:center;justify-content:center;padding:16px}
 .gate.on{display:flex}
-.gate form{background:var(--white);border-radius:24px;padding:28px;box-shadow:var(--shadow);width:min(420px,100%);display:grid;gap:14px}
-.gate h1{font-size:34px;font-weight:300;letter-spacing:-.03em}
+.gate form{background:var(--white);border-radius:28px;padding:28px;box-shadow:var(--shadow);width:min(380px,100%);display:flex;flex-direction:column}
+.gate h1{font-size:32px;font-weight:300;letter-spacing:-.03em;line-height:1.08;margin:40px 0 22px}
+.gate .field{display:flex;align-items:center;gap:6px;background:var(--paper);border-radius:16px;padding:6px 6px 6px 0;box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .18s cubic-bezier(.2,.8,.2,1)}
+.gate .field:focus-within{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.gate form.bad .field{box-shadow:inset 0 0 0 1.5px #B2402C}
+.gate input{flex:1;min-width:0;border:0;background:transparent;padding:10px 16px;font-size:16px;letter-spacing:.06em;caret-color:var(--ink)}
+.gate input::placeholder{color:#62645C;letter-spacing:0;opacity:1}
+.gate input:focus,.gate input:focus-visible{outline:none}
+.gate .go{flex:none;width:42px;height:42px;border:0;border-radius:12px;background:var(--ink);color:var(--lime);display:grid;place-items:center;transition:transform .18s cubic-bezier(.2,.8,.2,1),opacity .18s}
+.gate .go svg{width:18px;height:18px}
+.gate .go:hover{transform:translateX(2px)}
+.gate .go:disabled{opacity:.45;cursor:progress;transform:none}
+.gate .err{color:#B2402C;font-size:13px;margin-top:10px}
+.gate .err:empty{display:none}
 .pclose{position:absolute;top:8px;right:8px;z-index:2;width:28px;height:28px;border-radius:50%;border:0;background:rgba(255,255,255,.92);font-size:17px;line-height:1;display:grid;place-items:center;box-shadow:0 2px 6px rgba(0,0,0,.2)}
 .thumb .dot{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px;border-radius:50%;background:var(--white);box-shadow:0 0 0 4px rgba(255,255,255,.4)}
 @media (max-width:960px){
@@ -374,7 +391,7 @@ pre.mail{white-space:pre-wrap;background:var(--white);border-radius:14px;padding
 </head>
 <body>
 <div class="topbar"><div class="wrap"><div class="tbar">
-  <a class="logo" href="#overzicht"><span class="mk">✳</span><span>Dolomieten 2027</span></a>
+  <a class="logo" href="#overzicht"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15M6.7 6.7l10.6 10.6M17.3 6.7 6.7 17.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span><span>Trevol</span></a>
   <nav class="nav" id="nav" aria-label="Onderdelen">
     <a href="#overzicht">Overzicht</a><a href="#reisschema">Reisschema</a><a href="#todo">To-do's</a><a href="#paklijst">Paklijst</a><a href="#budget">Budget</a><a href="#teddie">Teddie</a><a href="#info">Campings &amp; info</a>
   </nav>
@@ -398,7 +415,7 @@ pre.mail{white-space:pre-wrap;background:var(--white);border-radius:14px;padding
   <section class="view" id="v-budget" data-dyn></section>
   <section class="view" id="v-teddie" data-dyn></section>
   <section class="view" id="v-info" data-dyn></section>
-  <footer class="foot"><span>Dolomieten 2027 · Tesla Model Y · 2 personen + Teddie</span><span>Kaart: OpenFreeMap · © OpenStreetMap · Sentinel-2 © EOX</span></footer>
+  <footer class="foot"><span>Trevol · Dolomieten 2027 · Tesla Model Y · 2 personen + Teddie</span><span>Kaart: OpenFreeMap · © OpenStreetMap · Sentinel-2 © EOX</span></footer>
 </main>
 
 <nav class="bnav" id="bnav" aria-label="Onderdelen mobiel">
@@ -416,7 +433,7 @@ pre.mail{white-space:pre-wrap;background:var(--white);border-radius:14px;padding
 </div></div>
 <div class="toast" id="toast" role="status"></div>
 <div class="lb" id="lb" role="dialog" aria-label="Foto's"></div>
-<div class="gate" id="gate"><form id="gateForm"><span class="logo"><span class="mk">✳</span><span>Dolomieten 2027</span></span><h1 class="two"><span class="a">Welkom,</span> <span class="b">vul de code in</span></h1><label class="f"><span>Toegangscode</span><input type="password" id="gateIn" autocomplete="current-password" required></label><div class="small" id="gateErr" style="color:#B2402C" role="alert"></div><button class="btn dark" type="submit">Openen</button></form></div>
+<div class="gate" id="gate"><form id="gateForm" novalidate><span class="logo"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15M6.7 6.7l10.6 10.6M17.3 6.7 6.7 17.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span><span>Trevol</span></span><h1 class="two"><span class="a">Welkom,</span><br><span class="b">vul de code in</span></h1><div class="field"><input type="password" id="gateIn" autocomplete="current-password" placeholder="Toegangscode" aria-label="Toegangscode" aria-describedby="gateErr" required><button class="go" type="submit" aria-label="Openen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><div class="err" id="gateErr" role="alert"></div></form></div>
 <input type="file" id="phfile" accept="image/*" multiple hidden>
 
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
@@ -604,7 +621,7 @@ function setSync(){
 async function pull(){
   if(!accessCode){ showGate(false); return; }
   try{ const st = await api("/api/state", "GET"); mode = "live"; setSync(); hideGate(); applyRemote(st); }
-  catch(e){ if(e.code!=="auth"){ mode = "local"; setSync(); } }
+  catch(e){ if(e.code!=="auth"){ mode = "local"; setSync(); if($("#gate").classList.contains("on")) $("#gateErr").textContent = "Geen verbinding met de server. Probeer het zo opnieuw."; } }
 }
 function connect(){
   pull();
@@ -613,7 +630,7 @@ function connect(){
 }
 function showGate(wrong){
   const g = $("#gate"); g.classList.add("on");
-  $("#gateErr").textContent = wrong ? "Die code klopt niet. Probeer opnieuw." : "";
+  $("#gateErr").textContent = wrong ? "Die code klopt niet. Probeer opnieuw." : ""; $("#gateForm").classList.toggle("bad", !!wrong);
   setTimeout(() => $("#gateIn").focus(), 50);
 }
 function hideGate(){ $("#gate").classList.remove("on"); }
@@ -1419,7 +1436,8 @@ let spyRaf = 0;
 window.addEventListener("scroll", () => { if(!spyRaf) spyRaf = requestAnimationFrame(() => { spyRaf = 0; spy(); }); }, {passive:true});
 window.addEventListener("hashchange", () => { stopTour(); window.scrollTo({top:0}); render(); });
 
-$("#gateForm").addEventListener("submit", e => { e.preventDefault(); accessCode = $("#gateIn").value.trim(); try{ localStorage.setItem("dolo27-code", accessCode); }catch(err){} pull(); });
+$("#gateForm").addEventListener("submit", e => { e.preventDefault(); const v = $("#gateIn").value.trim(); if(!v){ $("#gateIn").focus(); return; } accessCode = v; try{ localStorage.setItem("dolo27-code", accessCode); }catch(err){} const go = $("#gateForm .go"); go.disabled = true; pull().finally(() => { go.disabled = false; }); });
+$("#gateIn").addEventListener("input", () => { $("#gateForm").classList.remove("bad"); $("#gateErr").textContent = ""; });
 $("#phfile").addEventListener("change", e => { const f = [...e.target.files]; e.target.value = ""; if(phTarget && f.length) addPhotos(phTarget, f); });
 loadLocal(); setSync(); buildHero(); render(); connect();
 </script>
