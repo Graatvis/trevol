@@ -1,0 +1,14 @@
+{
+  "name": "dolomieten-2027",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@vercel/blob": "2.8.2"
+  },
+  "scripts": {
+    "dev": "node dev.mjs"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

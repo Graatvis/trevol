@@ -1,0 +1,8 @@
+dev.mjs
+.dev-state.json
+.dev-photos
+.claude
+CLAUDE.md
+README.md
+.env*
+node_modules
